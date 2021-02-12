@@ -4,6 +4,8 @@ export class BaseService {
 
     public urlBase: string = "https://api.api-futebol.com.br/v1/";
 
+
+
     public httpOptionsJson = {
         headers: new HttpHeaders(
             {
