@@ -24,7 +24,7 @@ import { TimesPage } from '../pages/times/times';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +32,7 @@ import { TimesPage } from '../pages/times/times';
     TimesPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
   ],
   providers: [
     StatusBar,
