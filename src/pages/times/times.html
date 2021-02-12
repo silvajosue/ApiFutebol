@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title>Times</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,14 +9,13 @@
   <div padding>
     <form [formGroup]=form>
       <div class="col-2">
-        <ion-card *ngFor="let campeonato of campeonatos">
+        <ion-card *ngFor="let time of times">
           <ion-item>
             <ion-avatar item-start>
-              <img [src]="campeonato.logo">
+              <img [src]="time.time.escudo">
             </ion-avatar>
-            <h2 class="red">{{campeonato.nome}}</h2>
+            <h2 class="red">{{time.time.nome_popular}}</h2>
           </ion-item>
-          <img [src]="campeonato.logo">
         </ion-card>
       </div>
     </form>

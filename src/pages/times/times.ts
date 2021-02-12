@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BrasileiroProvider } from '../../providers/brasileiro/brasileiro';
 
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [
-    BrasileiroProvider
-  ]
-})
-export class HomePage implements OnInit {
 
+@IonicPage()
+@Component({
+  selector: 'page-times',
+  templateUrl: 'times.html',
+})
+export class TimesPage implements OnInit{
+
+  public times: any[];
   public form: FormGroup;
-  public campeonatos: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private brasileiroProvider: BrasileiroProvider, private formBuilder: FormBuilder) {
   }
 
   public ngOnInit(): void {
     this.createForm();
-    this.brasileiroProvider.getBrasileiro().subscribe(
+    this.brasileiroProvider.getTimes().subscribe(
       sucesso => {
-        this.campeonatos = sucesso
-        console.log(this.campeonatos);
+        this.times = sucesso
+        console.log(this.times);
 
       },
       erro => {
