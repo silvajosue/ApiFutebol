@@ -7,7 +7,7 @@
 <ion-content padding>
   <h2>Bem vindo a esse app meio muito zoado</h2>
   <div padding>
-    <form [formGroup]=form>
+    <form [formGroup]="form">
       <div class="col-2">
         <ion-card *ngFor="let campeonato of campeonatos">
           <ion-item>
@@ -15,8 +15,10 @@
               <img [src]="campeonato.logo">
             </ion-avatar>
             <h2 class="red">{{campeonato.nome}}</h2>
+            
           </ion-item>
           <img [src]="campeonato.logo">
+          <ion-card-header><Button ion-button id="acessar" (click)="acessarCampeonato(campeonato)"> Detalhes </Button> </ion-card-header>
         </ion-card>
       </div>
     </form>

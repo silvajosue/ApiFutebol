@@ -14,7 +14,7 @@ export class BrasileiroProvider extends BaseService{
     return this.http.get<any[]>(this.urlBase + 'campeonatos', this.httpOptionsJson);
   }
 
-  public getTimes(): Observable<any[]> {
-    return this.http.get<any[]>(this.urlBase + 'campeonatos/' + 10 + '/tabela', this.httpOptionsJson);
+  public getTimes(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.urlBase + 'campeonatos/' + id + '/tabela', this.httpOptionsJson);
   }
 }

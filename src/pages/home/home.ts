@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import { BrasileiroProvider } from '../../providers/brasileiro/brasileiro';
+import { TimesPage } from '../times/times';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +21,17 @@ export class HomePage implements OnInit {
 
   public ngOnInit(): void {
     this.createForm();
+    this.carregarCampeonatos();
+    
+  }
+
+  public createForm(): void {
+    this.form = this.formBuilder.group({
+      acessar: [""]
+    });
+  }
+
+  public carregarCampeonatos(){
     this.brasileiroProvider.getBrasileiro().subscribe(
       sucesso => {
         this.campeonatos = sucesso
@@ -32,10 +44,10 @@ export class HomePage implements OnInit {
     )
   }
 
-  public createForm(): void {
-    this.form = this.formBuilder.group({
-
-    });
+  public acessarCampeonato(campeonato: any){
+    this.navCtrl.push(TimesPage,{
+      campeonato: campeonato.campeonato_id
+    })
   }
 
 }
